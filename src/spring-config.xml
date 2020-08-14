@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!--    <bean class="com.zx.example.User" id="user" init-method="initMethod">
-            <property name="name" value="zx"/>
-            <property name="password" value="123456"/>
-        </bean>-->
+    <bean class="com.zx.example.User" id="user">
+        <property name="name" value="zx"/>
+        <property name="password" value="123456"/>
+    </bean>
 
     <!--<bean id="myBeanFactoryPostProcessor" class="com.zx.example.MyBeanFactoryPostProcessor"/>
 
@@ -22,24 +22,24 @@
     </bean>-->
 
 
-    <bean id="userService" class="com.zx.aspect.UserServiceImpl"/>
+    <!--  <bean id="userService" class="com.zx.aspect.UserServiceImpl"/>
 
-    <bean id="logger" class="com.zx.aspect.LoggerAspect"/>
+      <bean id="logger" class="com.zx.aspect.LoggerAspect"/>-->
 
     <!--  <bean id="testCglib" class="com.zx.aspect.TestCglib"/>-->
 
 
     <!--切面、切点、通知-->
 
-    <aop:config>
-        <!--切面-->
+    <!--<aop:config>
+        &lt;!&ndash;切面&ndash;&gt;
         <aop:aspect id="logger" ref="logger">
-            <!--针对这个包下的所有方法 也是一个bean 对象-->
+            &lt;!&ndash;针对这个包下的所有方法 也是一个bean 对象&ndash;&gt;
             <aop:pointcut id="update" expression="execution(* com.zx.aspect..*.*(..))"/>
-            <!--处理逻辑-->
+            &lt;!&ndash;处理逻辑&ndash;&gt;
             <aop:before method="before" pointcut-ref="update"/>
             <aop:after method="after" pointcut-ref="update"/>
         </aop:aspect>
 
-    </aop:config>
+    </aop:config>-->
 </beans>
